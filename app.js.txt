@@ -1,0 +1,41 @@
+let node = document.body;
+
+const traverse = (node) => {
+    console.log(node);
+
+    for (let child of node.children) {
+        traverse(child);
+    }
+};
+const getRandom = (maxValue) => {
+return parseInt(Math.random()*(maxValue));
+};
+
+const getRandomColor = () => {
+    return 'rgb(' + getRandom(256) + ',' + getRandom(256) + ',' + getRandom(256) + ')';
+};
+
+
+
+$('#btn-add')
+    .on('click', () => {
+        $('#technologist-list')
+            .append($('<li>NEW technology</li>'))
+    });
+
+$('#technologist-list')
+    .on('click', 'li', function () {
+        $(this).css('color', getRandomColor())
+        //$(this).remove();
+    });
+
+//traverse(document.body);
+
+// document.getElementById('btn-add')
+//     .addEventListener('click', () => {
+//         const listNode = document.createElement('li');
+//         listNode.innerHTML = 'NEW technology';
+//         document.getElementById('technologist-list')
+//             .appendChild(listNode)
+//
+//     });
